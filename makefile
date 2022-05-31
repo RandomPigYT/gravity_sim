@@ -2,7 +2,7 @@ CC:=gcc
 LD:=gcc
 
 SRCS:=$(wildcard src/*.c)
-OBJS:=$(patsubst obj/%.c, src/%.c, $(SRCS))
+OBJS:=$(patsubst src/%.c, obj/%.o, $(SRCS))
 
 CFLAGS:=-g -O2 -Wall -Wextra -std=c17
 LDFLAGS:=-lSDL2main -lSDL2 -lSDL2_gfx -lm
@@ -16,7 +16,7 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LDFLAGS)
 
-obj/$(shell basename %).o: src/%.c
+obj/%.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
@@ -25,3 +25,6 @@ clean:
 	
 run:
 	./$(TARGET)
+
+echo:
+	echo $(OBJS)
