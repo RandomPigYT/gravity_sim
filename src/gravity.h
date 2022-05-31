@@ -20,5 +20,8 @@ typedef struct planet_t{
 	
 }planet;
 
+extern planet* planets;
+extern SDL_Renderer* renderer;
+
 
 #endif

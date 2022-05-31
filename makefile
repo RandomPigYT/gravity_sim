@@ -9,7 +9,7 @@ LDFLAGS:=-lSDL2main -lSDL2 -lSDL2_gfx -lm
 
 TARGET:=bin/gravity
 
-.PHONY: all clean
+.PHONY: all clean run
 
 all: $(TARGET)
 
@@ -23,3 +23,5 @@ clean:
 	rm bin/*
 	rm obj/*
 	
+run:
+	./$(TARGET)
